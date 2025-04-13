@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>SnapFit - 상품 목록</title>
+
+    <!-- Bootstrap & Custom CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header class="bg-dark py-3">
+        <div class="container">
+            <h1 class="text-white">SnapFit 상품 목록</h1>
+        </div>
+    </header>
+
+    <main class="container mt-4">
+        {% if product_list %}
+            {% for product in product_list %}
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            <a href="/snapfit/{{ product.id }}/" class="text-decoration-none text-dark">
+                                {{ product.title }}
+                            </a>
+                        </h3>
+                        <p class="card-text">{{ product.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="alert alert-warning">등록된 상품이 없습니다.</div>
+        {% endif %}
+    </main>
+
+    <footer class="bg-light py-3 mt-5">
+        <div class="container text-center">
+            <small>&copy; 2025 SnapFit. All Rights Reserved.</small>
+        </div>
+    </footer>
+</body>
+</html>
