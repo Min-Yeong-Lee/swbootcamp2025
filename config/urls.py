@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('pages.urls')),           # mainpage
     path('pages/', include('pages.urls')),      # ← 있어야 /pages/company/ 작동
     path('snapfit/', include('snapfit.urls')),  # snapfit상품목록
+    path('accounts/',include('accounts.urls')),
 ]
